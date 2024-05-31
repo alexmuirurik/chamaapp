@@ -1,4 +1,4 @@
-![alt text][https://github.com/alexmuirurik/chamaapp/blob/main/public/assets/img/logo-ct-dark.png]  
+![alt text](https://github.com/alexmuirurik/chamaapp/blob/main/public/assets/img/logo-ct-dark.png)  
 
 ## Olive Chama
 
