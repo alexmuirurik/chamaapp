@@ -31,9 +31,320 @@
     --ch-anchor-hover-color: #e3e6eb;
 
     /* Bootstrap Default Colors */
-    --bs-border-color: #131a1f;
-    --bs-body-color: var(--ch-font-color);
+    --bs-body-bg: #212529;
+    --bs-border-color: #495057;
+    --bs-body-color: #dee2e6;
     --bs-heading-color: var(--ch-font-color);
     --bs-emphasis-color: var(--ch-font-color)
 }
 
+body{
+    background: var(--ch-mainbody-bg);
+    color: var(--ch-font-color);
+    font-size: var(--ch-font-size);
+    font-family: 'nunito' sans-serif;
+    border-color: var(--ch-border-color) !important;
+}
+
+body a,
+nav .nav-link,
+aside .sidebar-body .nav-item a{
+    font-family: 'nunito' sans-serif;
+    color: var(--ch-anchor-color);
+    text-decoration: none;
+}
+
+body a:hover,
+nav .nav-link:hover,
+nav .nav-link:focus,
+aside .sidebar-body .nav-item a:hover{
+    color: var(--ch-anchor-hover-color);
+    text-decoration: wavy;
+}
+
+body .card{
+    --bs-card-color: var(--ch-font-color);
+    --bs-body-bg: var(--ch-body-bg);
+}
+
+body .card.card-tables table td, 
+body .card.card-tables .card-header{
+    background: var(--ch-mainbody-bg) !important;
+    color: var(--ch-font-color);
+}
+
+body text{
+    fill: var(--ch-font-color);
+}
+
+body line{
+    stroke: var(--bs-border-color);
+}
+
+body .apexcharts-menu,
+body .apexcharts-tooltip.apexcharts-theme-light{
+    background: rgba(255, 255, 255, 0.144);
+}
+
+body .form-control::placeholder{
+    color: var(--bs-border-color);
+}
+
+body .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title{
+    background: rgba(255, 255, 255, 0.384);
+}
+
+:root .btn-outline-light{
+    --bs-btn-color: #5a6a7b;
+    --bs-btn-border-color: #5a6a7b;
+}
+
+:root .dark-content .btn-outline-light{
+    --bs-btn-color: #f8f9fa;
+    --bs-btn-border-color: #f8f9fa;
+}
+
+::-webkit-scrollbar{
+    background: var(--ch-mainbody-bg);
+    height: 5px;
+    width: 2px;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--ch-body-bg);
+    border-radius: 20px;
+}
+
+
+/* ********************************
+    Mobile Screen
+********************************* */
+@media (max-width : 576px) {
+    
+}
+
+
+/* ********************************
+    Tablet Screen
+********************************* */
+@media (max-width : 768px) {
+    :root{
+        --ch-sidebar-size: 0px;
+    }
+
+    .card{
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/* ********************************
+    Sidebar Section
+********************************* */
+aside{
+    position: fixed;
+    background: var(--ch-sidebar-bg);
+    border-right: 1px solid var(--ch-border-color);
+    height: 100svh;
+    width: var(--ch-sidebar-size);
+    overflow: hidden;
+}
+
+aside .sidebar-head{
+    background: var(--ch-navbar-bg);
+    height: var(--ch-navbar-height);
+}
+
+aside .sidebar-body{
+    height: calc(100svh - var(--ch-navbar-height));
+}
+
+
+aside .sidebar-body::-webkit-scrollbar{
+    background: var(--ch-navbar-bg);
+    height: 30px;
+    width: 3px;
+    border-radius: 3px;
+}
+
+aside .sidebar-body::-webkit-scrollbar-thumb{
+    background: var(--ch-body-bg);
+    border-radius: 3px;
+}
+
+aside .sidebar-body .nav-item:hover,
+aside .sidebar-body .nav-item.active{
+    border-left: 2px solid #3672c4;
+    background: var(--ch-sidebar-hover-bg)
+}
+
+aside .sidebar-body .nav-item a .icon i{
+    width: 30px;
+    margin: auto;
+}
+
+aside .sidebar-body .nav-item .dropdown-toggle::after{
+    margin-left: 3.255em;
+}
+
+
+aside .sidebar-body .nav-item .dropdown-menu{
+    background: transparent;
+    transform: none !important;
+    color: var(--ch-font-color);
+}
+
+aside .sidebar-body .nav-item .dropdown-menu .dropdown-item:hover{
+    background: transparent;
+}
+
+/* ********************************
+    Main Section
+********************************* */
+main{
+    position: relative;
+    width: var(--ch-maincontent-size);
+    left: calc(var(--ch-sidebar-size) );
+}
+
+main .main-wrapper{
+    position: relative;
+    min-height: calc(var(--ch-maincontent-height ) - 7.5px);
+    top: calc(7.5px);
+}
+
+main .main-wrapper .multisteps-form__progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(0,1fr))
+}
+
+.multisteps-form__progress-btn {
+    background-color: transparent;
+    border: none;
+    color: #dee2e6;
+    cursor: pointer;
+    outline: none!important;
+    padding-top: 20px;
+    position: relative;
+    text-indent: -9999px;
+    transition-delay: 0s;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: linear
+}
+
+@media(min-width: 500px) {
+    .multisteps-form__progress-btn {
+        text-indent:0
+    }
+}
+
+.multisteps-form__progress-btn:before {
+    background-color: #fff;
+    border: 2px solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 13px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    transition: all .15s linear 0s,transform .15s cubic-bezier(.05,1.09,.16,1.4) 0s;
+    width: 13px;
+    z-index: 3
+}
+
+.multisteps-form__progress-btn:after {
+    background-color: currentColor;
+    content: "";
+    display: block;
+    height: 2px;
+    left: calc(-50% - 6.5px);
+    position: absolute;
+    top: 5px;
+    transition-delay: 0s;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: linear;
+    width: 100%;
+    z-index: 1
+}
+
+.multisteps-form__progress-btn:first-child:after {
+    display: none
+}
+
+.multisteps-form__progress-btn.js-active {
+    color: #344767
+}
+
+.multisteps-form__progress-btn.js-active span {
+    color: #8392ab
+}
+
+.multisteps-form__progress-btn.js-active:before {
+    background-color: currentColor;
+    transform: translateX(-50%) scale(1.2)
+}
+
+.multisteps-form__form {
+    position: relative
+}
+
+.multisteps-form__panel {
+    height: 0;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    visibility: hidden;
+    width: 100%
+}
+
+.multisteps-form__panel.js-active {
+    height: auto;
+    opacity: 1;
+    visibility: visible
+}
+
+.multisteps-form__panel[data-animation=scaleIn] {
+    transform: scale(.9)
+}
+
+.multisteps-form__panel[data-animation=scaleIn].js-active {
+    transform: scale(1);
+    transition-delay: 0s;
+    transition-duration: .2s;
+    transition-property: all;
+    transition-timing-function: linear
+}
+
+
+/* ********************************
+    Navbar Section
+********************************* */
+nav{
+    position: relative;
+    background: var(--ch-navbar-bg);
+    height: var(--ch-navbar-height);
+    z-index: 10;
+}
+
+
+/* ********************************
+    Footer Section
+********************************* */
+footer{
+    position: relative;
+    background: var(--ch-sidebar-bg);
+    height: var(--ch-navbar-height);
+}
+
+.login-img{
+    background: url(/assets/img/collabo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}

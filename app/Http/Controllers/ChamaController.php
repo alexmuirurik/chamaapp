@@ -14,9 +14,9 @@ class ChamaController extends Controller
      */
     public function index()
     {
-        $users  =   User::all();
+        $chamas  =   Chama::all();
         $lists_card = 'components.lists.chamas';       
-        return view('pages.index', compact('lists_card', 'users'));
+        return view('pages.index', compact('lists_card', 'chamas'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ChamaController extends Controller
      */
     public function store(StoreChamaRequest $request)
     {
-        //
+       
     }
 
     /**

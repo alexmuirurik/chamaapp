@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('deposit_method');
+            $table->float('amount', 10, 2);
+            $table->string('status');
             $table->timestamps();
         });
     }

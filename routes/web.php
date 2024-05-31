@@ -1,16 +1,14 @@
 <?php
 
 use App\Http\Controllers\ChamaController;
-use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MerryGoRoundController;
 use App\Http\Controllers\ShareController;
-use App\Http\Controllers\UserController;
-use App\Models\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +22,10 @@ use App\Models\Dashboard;
 */
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group( function () {
+Route::middleware(['auth', 'chama'])->group( function () {
+	Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::resources([
-		'/'				=>	DashboardController::class,
-		'members'       =>  UserController::class,
+		'members'       =>  MemberController::class,
 		'loans'         =>  LoanController::class,
 		'chama'			=>	ChamaController::class,
 		'merrygoround'  =>  MerryGoRoundController::class,

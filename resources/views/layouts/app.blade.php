@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nucleo-icons.css') }}">
+    @livewireStyles
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
 </head>
 
@@ -23,14 +24,13 @@
             @include('components.alert')
             @yield('content')
         </div>
-        @include('layouts.footers.auth.footer')
     </main>
     <!-- Github buttons -->
     <script defer src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script defer src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
     <script defer src="{{ asset('assets/vendor/swal/swalalert.min.js') }}"></script>
     <script defer src="{{asset('assets/vendor/apexjs/apexjs.min.js')}}"></script>
-    {{-- <script defer src="https://buttons.github.io/buttons.js"></script> --}}
+    @livewireScripts
     <script defer src="{{ asset('assets/js/index.js') }}"></script>
 </body>
 

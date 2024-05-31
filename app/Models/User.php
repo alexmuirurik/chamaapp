@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,6 +23,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'names',
         'firstname',
         'lastname',
         'email',
@@ -58,5 +63,13 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function session(): BelongsTo {
+        return $this->belongsTo(Session::class);
+    }
+
+    public function members(): HasMany{
+        return $this->hasMany(Member::class);
     }
 }
